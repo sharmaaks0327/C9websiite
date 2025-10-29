@@ -21,7 +21,7 @@ function render(){
   const t = heroProgress();
 
   // Mobile: much lighter motion to avoid jitter
-  const parallaxFactor = IS_MOBILE ? 0.08 : 0.22;
+  const parallaxFactor = IS_MOBILE ? 0.12 : 0.25;
   const bgMaxScale     = IS_MOBILE ? 1.12 : 1.28;
 
   const scrollY = window.scrollY || window.pageYOffset;
@@ -65,13 +65,6 @@ function render(){
     logo.style.willChange = 'transform';
   }
 }
-if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-  window.removeEventListener('scroll', onScroll);
-  if (heroBg) heroBg.style.transform = 'none';
-  if (h1)     h1.style.transform = 'none';
-  if (p){ p.style.opacity = 1; p.style.transform = 'none'; }
-}
-
 
   if (heroBg) {
     heroBg.style.transform = `translateY(${parallaxY}px) scale(${bgScale})`;

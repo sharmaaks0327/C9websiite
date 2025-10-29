@@ -159,16 +159,13 @@
     <div class="contact" style="max-width:900px; margin:0 auto">
       <h3 class="section-title" style="text-align:center">Book a Free In‑Home Estimate</h3>
       <p class="section-sub" style="text-align:center">We serve Calgary and nearby areas. No obligation.</p>
-      <form class="form" onsubmit="return false;" style="background:#fff; border:1px solid var(--line); border-radius:22px; padding:18px; box-shadow:0 12px 40px rgba(5,26,55,.08)">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px">
-          <input placeholder="Full name" required style="padding:14px; border-radius:12px; border:1px solid #cfe2ff">
-          <input placeholder="Phone number" required style="padding:14px; border-radius:12px; border:1px solid #cfe2ff">
-        </div>
-        <input placeholder="Address (City, Postal Code)" required style="width:100%; margin-top:12px; padding:14px; border-radius:12px; border:1px solid #cfe2ff">
-        <textarea rows="4" placeholder="Tell us about your project (window sizes, style)" style="width:100%; margin-top:12px; padding:14px; border:1px solid #cfe2ff"></textarea>
-        <div style="display:flex; gap:12px; margin-top:12px; flex-wrap:wrap">
-          <button class="btn btn-primary" type="submit">Request Visit</button>
-          <a class="btn btn-ghost" href="mailto:info@cloud9blinds.ca">Email Us</a>
+      <form id="quoteForm" class="form"> <input name="name"     placeholder="Full name" required> <input name="phone"    placeholder="Phone number" required> <input name="address"  placeholder="Address (City, Postal Code)" required> <textarea name="message" rows="4" placeholder="Tell us about your project"></textarea> <button class="btn btn-primary" type="submit">Request Visit</button> </form> <script> document.getElementById('quoteForm').addEventListener('submit', async (e) => { e.preventDefault(); const data = Object.fromEntries(new FormData(e.target).entries()); const res = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }); if (res.ok) { alert('Thanks! We received your request.'); e.target.reset(); } else { alert('Sorry, could not send. Please try again or email us.'); } }); </script>
+<a
+  class="btn btn-ghost"
+  href="mailto:info@cloud9blinds.ca?subject=Free%20In-Home%20Estimate%20Request&body=Name:%0D%0APhone:%0D%0AAddress:%0D%0AProject:%0D%0A">
+  Email Us
+</a>
+
         </div>
       </form>
     </div>
