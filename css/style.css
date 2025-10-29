@@ -12,7 +12,7 @@ body{margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helveti
   background:linear-gradient(to bottom, rgba(255,255,255,.95), rgba(255,255,255,.6)); border-bottom:1px solid var(--line)}
 .nav .inner{max-width:1240px; margin:0 auto; height:68px; display:flex; align-items:center; justify-content:space-between; padding:0 20px}
 .brand{display:flex; align-items:center; gap:12px; font-weight:900; color:var(--lapis)}
-.brand img.logo{height:150px; width:auto; transform:translateZ(0); transition:transform .25s var(--ease)}
+.brand img.logo{height:110px; width:auto; transform:translateZ(0); transition:transform .25s var(--ease)}
 .brand img.logo:hover{transform:scale(1.06)}
 .links a{color:#2e5686; text-decoration:none; margin:0 12px; font-weight:700}
 .links a:hover{color:var(--lapis)}
@@ -162,4 +162,56 @@ background: rgba(255,255,255,0.85);
     align-items: center;
   }
 }
+/* === MOBILE PATCH (layout, type, images, buttons) === */
+@media (max-width: 900px) {
+  /* Nav */
+  .nav .inner{ height:64px; padding:0 12px; }
+  .brand img.logo{ height:32px; }
+  .links{ display:none; }               /* hide desktop links on mobile */
+  .cta{ padding:10px 14px; font-size:.9rem; }
+
+  /* Hero */
+  .hero{ min-height:82vh; }
+  .hero h1{ font-size:clamp(28px,8vw,36px); line-height:1.15; padding:0 12px; }
+  .hero p{ font-size:1rem; padding:0 14px; }
+  .actions{ gap:10px; }
+  .btn{ padding:12px 18px; font-size:.95rem; }
+
+  /* Sections */
+  .section{ padding:64px 16px; }
+  .section-title{ font-size:clamp(24px,6.5vw,30px); }
+  .section-sub{ font-size:.98rem; padding:0 8px; }
+
+  /* Two-column rows -> single column stack */
+  .row, .row.alt{
+    display:block; max-width:980px; margin:28px auto;
+  }
+  .row .card, .row .copy{ margin:0 0 16px; }
+  .card img{ height:46vh; max-height:520px; }
+
+  /* Pills + buttons */
+  .pills span{ font-size:.88rem; }
+  .btn-row{ flex-direction:column; align-items:stretch; }
+  .btn-row .btn{ width:100%; }
+
+  /* Gallery strip tiles fit screen width */
+  .tile{ flex:0 0 86vw; height:52vh; }
+
+  /* Marquee tighter */
+  .marquee .track{ padding:8px 0; }
+  .marquee span{ margin:0 18px; }
+
+  /* General safety: avoid horizontal scroll */
+  html, body{ overflow-x:hidden; }
+  img, video{ max-width:100%; height:auto; }
+  p, li{ word-break:break-word; }
+}
+
+@media (max-width: 600px){
+  .hero h1{ font-size:clamp(26px,9vw,32px); }
+  .hero p{ font-size:.95rem; }
+  .card img{ height:44vh; }
+  .footer .inner{ flex-direction:column; gap:10px; }
+}
+
 
