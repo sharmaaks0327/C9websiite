@@ -166,7 +166,7 @@ background: rgba(255,255,255,0.85);
 @media (max-width: 900px) {
   /* Nav */
   .nav .inner{ height:64px; padding:0 12px; }
-  .brand img.logo{ height:32px; }
+  .brand img.logo{ height:50px; }
   .links{ display:none; }               /* hide desktop links on mobile */
   .cta{ padding:10px 14px; font-size:.9rem; }
 
