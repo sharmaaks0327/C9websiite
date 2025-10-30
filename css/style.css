@@ -236,5 +236,42 @@ background: rgba(255,255,255,0.85);
     font-size: .98rem;
   }
 }
+/* === MOBILE PATCH (layout, type, images, buttons) === */
+@media (max-width: 900px) {
+  .nav .inner{ height:64px; padding:0 12px; }
+  .brand img.logo{ height:32px; }
+  .links{ display:none; }
+  .cta{ padding:10px 14px; font-size:.9rem; }
 
+  .hero{ min-height:82vh; }
+  .hero h1{ font-size:clamp(28px,8vw,36px); line-height:1.15; padding:0 12px; }
+  .hero p{ font-size:1rem; padding:0 14px; }
 
+  .btn{ padding:12px 18px; font-size:.95rem; }
+  .section{ padding:64px 16px; }
+  .section-title{ font-size:clamp(24px,6.5vw,30px); }
+  .section-sub{ font-size:.98rem; padding:0 8px; }
+
+  .row, .row.alt{ display:block; max-width:980px; margin:28px auto; }
+  .row .card, .row .copy{ margin:0 0 16px; }
+  .card img{ height:46vh; max-height:520px; }
+
+  .pills span{ font-size:.88rem; }
+  .btn-row{ flex-direction:column; align-items:stretch; gap:10px; }
+  .btn-row .btn{ width:100%; max-width:420px; }
+
+  .tile{ flex:0 0 86vw; height:52vh; }
+  .marquee .track{ padding:8px 0; }
+  .marquee span{ margin:0 18px; }
+
+  html, body{ overflow-x:hidden; }
+  img, video{ max-width:100%; height:auto; }
+  p, li{ word-break:break-word; }
+}
+
+@media (max-width: 600px){
+  .hero h1{ font-size:clamp(26px,9vw,32px); }
+  .hero p{ font-size:.95rem; }
+  .card img{ height:44vh; }
+  .footer .inner{ flex-direction:column; gap:10px; }
+}
